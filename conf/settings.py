@@ -175,6 +175,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 
-EMAIL_HOST_USER = "m.aminovich7@gmail.com"
-EMAIL_HOST_PASSWORD = "yuyl iovc hros prum"
+EMAIL_HOST_USER = "jasminanematullayeva1210005@gmail.com"
+EMAIL_HOST_PASSWORD = "gxpy lvks zshf ffxa"
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

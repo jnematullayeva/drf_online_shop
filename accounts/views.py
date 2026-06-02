@@ -59,7 +59,7 @@ class VerifyCodeView(APIView):
             return Response(
                 {
                     "success": True,
-                    "message": "Account successfully verified.",
+                    "message": "Hisobingiz muavffaqiyatli tasdiqlani.",
                     "auth_status": user.auth_status,
                     "tokens": user.token(),
                 },
@@ -82,7 +82,7 @@ class ResendCodeView(APIView):
 
             if user.auth_type == VIA_EMAIL:
                 send_to_mail(
-                    message=f"Your new verification code: {code}",
+                    message=f"Sizni yangi tasdiqlash kodingiz: {code}",
                     email=user.email,
                 )
 
@@ -90,7 +90,7 @@ class ResendCodeView(APIView):
                 print(f"New phone code: {code}")
 
             return Response(
-                {"success": True, "message": "A new verification code has been sent."},
+                {"success": True, "message": "Yangi tasdiqlash kodi yuborilidi."},
                 status=status.HTTP_200_OK,
             )
 
@@ -108,7 +108,7 @@ class ChangeProfileInfoView(APIView):
 
         if user.auth_status != CODE_VERIFY:
             return Response(
-                {"message": "You must verify the code first!"},
+                {"message": "Avaval kodni tasdiqlashigiz kerak."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -120,7 +120,7 @@ class ChangeProfileInfoView(APIView):
             return Response(
                 {
                     "success": True,
-                    "message": "Name and passwords saved successfully. Now upload a picture.",
+                    "message": "Ism va parol muvaffaqiyatli saqlandi. Endi rasm yuklash kerak.",
                     "auth_status": user.auth_status,
                 },
                 status=status.HTTP_200_OK,
@@ -138,7 +138,7 @@ class UploadProfilePhotoView(APIView):
 
         if user.auth_status != CHANGE_INFO:
             return Response(
-                {"message": "You must first enter your full name and passwords."},
+                {"message": "Avaval ism va parolni kiritishingiz kerak."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -148,7 +148,7 @@ class UploadProfilePhotoView(APIView):
             return Response(
                 {
                     "success": True,
-                    "message": "Registration completed successfully!",
+                    "message": "Ro'yxatdan o'tish muvaffaqiyatli yakunlandi!",
                     "auth_status": user.auth_status,
                 },
                 status=status.HTTP_200_OK,
