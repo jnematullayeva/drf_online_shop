@@ -19,7 +19,7 @@ class IsOwnerOrAdmin(BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.user.is_authenticated and request.user.user_role == 'admin':
             return True
-        # Assumes obj has a 'user' attribute
+        
         return obj.user == request.user
 
 class IsSellerOwnerOrAdmin(BasePermission):
