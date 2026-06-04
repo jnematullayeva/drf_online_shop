@@ -15,4 +15,4 @@ class Notification(BaseModel):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"Notification for {self.user.username}: {self.message[:30]}"
+        return f"{self.user.username} uchun bildirishnima: {self.message[:30]}"
